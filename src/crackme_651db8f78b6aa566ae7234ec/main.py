@@ -1,11 +1,15 @@
 import typer
 
+from crackme_651db8f78b6aa566ae7234ec.key_generator import KeyGenerator
+
 app = typer.Typer()
 
 
 @app.command()
-def keygen() -> None:
-    typer.echo("Implement your keygen for crackme_651db8f78b6aa566ae7234ec here.")
+def keygen(keys_to_generate: int = 1) -> None:
+
+    for _ in range(keys_to_generate):
+        typer.echo(KeyGenerator().generate())
 
 
 if __name__ == "__main__":
